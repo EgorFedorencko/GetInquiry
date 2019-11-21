@@ -28,9 +28,6 @@ namespace GetInquiry.Controllers
             if (request_id == null)
                 return BadRequest();
 
-            if (request_id.guid == null)
-                return BadRequest();
-
             Inquiry inquiry = _repository.GetInquiryById(request_id.guid);
 
             if (inquiry == null)
@@ -42,8 +39,6 @@ namespace GetInquiry.Controllers
         [HttpPost]
         public IActionResult GetInquiries([FromBody]ClientId_Department clientwithdepart)
         {
-            if (clientwithdepart.client_id == null)
-                return BadRequest();
             if (clientwithdepart.department_address == null)
                 return BadRequest();
 
